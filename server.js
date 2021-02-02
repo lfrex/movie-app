@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
 const movies = require('./models/movies.js');
 
 //Middleware:
 app.use(express.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 
 
 //Temporal get route to test show display
