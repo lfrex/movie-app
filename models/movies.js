@@ -20,6 +20,7 @@ const movies = [
     {
         name: "Life of Brian",
         director: "Terry Jones",
+        year: 1979,
         seenAlready: false
     }
 ];
