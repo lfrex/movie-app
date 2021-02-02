@@ -8,9 +8,16 @@ const index = (req, res) => {
 const renderSignup = (req, res) => {
     res.render('users/signup.ejs')
 };   
+//adds new user 
+const signup = (req, res) => {
+    users.push(req.body);
+    res.redirect(`/users/profile/${users.length-1}`);
+};
+
 
 
 module.exports = {
     index,
-    renderSignup,        
+    renderSignup,
+    signup,        
 };

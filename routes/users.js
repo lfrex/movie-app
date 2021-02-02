@@ -5,8 +5,10 @@ const ctrl = require('../controllers');
 //route for welcome page
 router.get('/', ctrl.users.index);
 
-//route for signup page
+//route to render signup page
 router.get('/signup', ctrl.users.renderSignup);
 
+//route to add new user
+router.post('/signup', ctrl.users.signup);
 
 module.exports = router;
