@@ -1,23 +1,17 @@
 const express = require('express');
-const app = express();
-const methodOverride = require('method-override');
 const movies = require('./models/movies.js');
-
+const methodOverride = require('method-override');
+const { ppid } = require('process');
 const routes = require('./routes');
 
+const app = express();
+
 //Middleware:
-app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
+app.use(express.urlencoded({extended: true}));
 
 
 app.use('/movies', routes.movies);
-app.use('/users', routes.users);
-
-//Temporal get route to test show display
-app.get('/movies/:index', function(req, res){
-    res.render('show.ejs');
-});
-
 
 app.listen(3000, () => {
     console.log("Movie-App listening");

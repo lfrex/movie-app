@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add a new movie</title>
+        <link rel="stylesheet" href="/css/app.css">
+    </head>
+    <body>
+        <h1>Add a new movie</h1>
+        <br>
+        <br>
+        <form action="/movies" method="POST">
+            Name: <input type="text"  name="name" />
+            <br>
+            Director:<input type="director" name="director" />
+            <br>
+            Year: <input type="number" name="year" />
+            <br>
+            Seen already? <input type="checkbox" name="seenAlready" />
+            <br>
+            <br>
+            <input type="submit" name="" value="Create Movie"/>
+        </form>
+    </body>
+</html>
