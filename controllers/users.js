@@ -1,5 +1,7 @@
-const users = require('../models/users');
 
+const users = require('../models/users');
+const movies = require('../models/movies);
+                       
 //Welcome page
 const index = (req, res) => {
     res.render('users/index.ejs')
@@ -55,4 +57,5 @@ module.exports = {
     editProfile,
     deleteUser,            
 };
+
 

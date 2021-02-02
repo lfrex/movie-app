@@ -1,4 +1,5 @@
 const users = [
+
     {
         name:'Movie-Fan-A',
         username: 'moviefana',
@@ -15,6 +16,10 @@ const users = [
         password: 'fanc'
     }
 ]
+
+
+
+  
 
 
 module.exports = users;

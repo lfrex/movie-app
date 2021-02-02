@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ctrl = require('../controllers');
 
+
 //route for welcome page
 router.get('/', ctrl.users.index);
 
@@ -25,5 +26,6 @@ router.put('/profile/:index', ctrl.users.editProfile);
 
 //delete user profile
 router.delete('/:index', ctrl.users.deleteUser);
+
 
 module.exports = router;
