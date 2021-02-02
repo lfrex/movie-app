@@ -20,4 +20,7 @@ router.get('/login', ctrl.users.renderLogin);
 //route to verify user login
 router.post('/login', ctrl.users.login);
 
+//route to edit profile
+router.put('/profile/:index', ctrl.users.editProfile);
+
 module.exports = router;

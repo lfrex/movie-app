@@ -25,8 +25,6 @@ const login = (req, res) => {
         }; 
         };
 };
-
-
 //profile for user
 const renderProfile = (req, res) => {
     res.render('users/profile.ejs', {
@@ -34,7 +32,11 @@ const renderProfile = (req, res) => {
         index: req.params.index
     })
 };
-
+//Edit user profile
+const editProfile = (req, res) => {
+    users[req.params.index] = req.body;
+    res.redirect(`/users/profile/${req.params.index}`);
+}
 
 
 
@@ -46,5 +48,6 @@ module.exports = {
     renderLogin,
     login,
     renderProfile,
+    editProfile,
             
 };
