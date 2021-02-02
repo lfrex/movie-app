@@ -21,10 +21,11 @@ const renderLogin = (req, res) => {
 const login = (req, res) => {
     for (let i = 0; i < users.length; i++) {
         if (users[i].username === req.body.username && users[i].password ===req.body.password){
-            res.redirect(`/users/profile/${index}`);
+            res.redirect('/users/profile/'+[i]);
         }; 
         };
 };
+
 
 //profile for user
 const renderProfile = (req, res) => {
