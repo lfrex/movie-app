@@ -17,5 +17,7 @@ router.get('/profile/:index', ctrl.users.renderProfile);
 //route to render login
 router.get('/login', ctrl.users.renderLogin);
 
+//route to verify user login
+router.post('/login', ctrl.users.login);
 
 module.exports = router;

@@ -17,6 +17,15 @@ const signup = (req, res) => {
 const renderLogin = (req, res) => {
     res.render('users/login.ejs')
 }; 
+//verify user login credentials
+const login = (req, res) => {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].username === req.body.username && users[i].password ===req.body.password){
+            res.redirect(`/users/profile/${index}`);
+        }; 
+        };
+};
+
 //profile for user
 const renderProfile = (req, res) => {
     res.render('users/profile.ejs', {
@@ -34,6 +43,7 @@ module.exports = {
     renderSignup,
     signup,
     renderLogin,
+    login,
     renderProfile,
             
 };
