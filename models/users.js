@@ -1,16 +1,16 @@
 const users = [
     {
-        name:'Movie Fan-A',
+        name:'Movie-Fan-A',
         username: 'moviefana',
         password: 'fana'
     },
     {
-        name:'Movie Fan-B',
+        name:'Movie-Fan-B',
         username: 'moviefanb',
         password: `fanb`
     },
     {
-        name:'Movie Fan-C',
+        name:'Movie-Fan-C',
         username: 'moviefanc',
         password: 'fanc'
     }

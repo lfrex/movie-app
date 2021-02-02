@@ -14,5 +14,8 @@ router.post('/signup', ctrl.users.signup);
 //route to render profile of user
 router.get('/profile/:index', ctrl.users.renderProfile);
 
+//route to render login
+router.get('/login', ctrl.users.renderLogin);
+
 
 module.exports = router;
