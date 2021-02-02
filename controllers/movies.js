@@ -1,4 +1,4 @@
-const movies = require('../models/movies');
+const movies = require('../models/movies.js');
 //const User = require('../models').User;
 
 const index = (req, res) => {
@@ -11,11 +11,11 @@ const show = (req, res) => {
     res.render('show.ejs', {
         movie: movies[req.params.index]
     });
-};
+}
 
 const renderNew = (req, res) => {
     res.render('new.ejs');
-};
+}
 
 const postMovie = (req, res) => {
     if(req.body.seenAlready === 'on'){
@@ -29,26 +29,28 @@ const postMovie = (req, res) => {
 
 
 const renderEdit = (req, res) => {
-    res.render('edit.ejs', {
-        movie: movies[req.params.index],
-        index: req.params.index
-    });
-};
+    res.render('edit.ejs',
+		{ 
+			movie: movies[req.params.index],
+			index: req.params.index 
+		}
+	);
+}
 
 const editMovie = (req, res) => {
-    if(req.body.seenAlready === 'on'){
+    if(req.body.seenAlready === 'on'){ 
         req.body.seenAlready = true;
-    } else {
+    } else { 
         req.body.seenAlready = false;
     }
-        movies[req.params.index] = req.body;
-        res.redirect('/movies');
-};
+	movies[req.params.index] = req.body;
+	res.redirect('/movies'); 
+}
 
 const deleteMovie = (req, res) => {
-    movies.splice(req.params.index, 1);
-    res.redirect('/movies');
-};
+    movies.splice(req.params.index, 1); 
+	res.redirect('/movies'); 
+}
 
 module.exports = {
     index,

@@ -15,7 +15,7 @@
             Year: <input type="number" name="year" value="<%=movie.year%>" />
             <br>
             Seen already? <input type="checkbox" name="seenAlready" 
-                <%= if(movie.seenAlready === true) { %>
+                <% if(movie.seenAlready === true){ %>
                     checked
                     <% } %>
             />
