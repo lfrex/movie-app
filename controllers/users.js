@@ -13,11 +13,18 @@ const signup = (req, res) => {
     users.push(req.body);
     res.redirect(`/users/profile/${users.length-1}`);
 };
-
+//
+const renderProfile = (req, res) => {
+    res.render('users/profile.ejs', {
+        user: users[req.params.index],
+        index: req.params.index
+    })
+};
 
 
 module.exports = {
     index,
     renderSignup,
-    signup,        
+    signup,
+    renderProfile,        
 };

@@ -11,4 +11,8 @@ router.get('/signup', ctrl.users.renderSignup);
 //route to add new user
 router.post('/signup', ctrl.users.signup);
 
+//route to render profile of user
+router.get('/profile/:index', ctrl.users.renderProfile);
+
+
 module.exports = router;
