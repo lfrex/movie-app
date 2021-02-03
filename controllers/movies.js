@@ -1,8 +1,7 @@
-
-
 const Movie = require('../models').Movie;
+const Genre = require('../models').Genres;
+//const User = require('../models').User;
 
-const User = require('../models').User;
 
 const index = (req, res) => {
     Movie.findAll()
@@ -14,7 +13,15 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-    Movie.findByPk(req.params.index)
+    Movie.findByPk(req.params.index,
+        {
+            include : [
+                {
+                    model: Genre,
+                    attributes: ['name']
+                }
+            ]
+        })
     .then(movie => {
         res.render('show.ejs', {
             movie: movie
