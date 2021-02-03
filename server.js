@@ -10,9 +10,11 @@ const app = express();
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended: true}));
 
-
 app.use('/movies', routes.movies);
 app.use('/users', routes.users);
+
+
+
 
 
 app.listen(3000, () => {

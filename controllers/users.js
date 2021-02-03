@@ -1,6 +1,7 @@
 
-const users = require('../users');
-const movies = require('../movies');
+
+const User = require('../models').User;
+//const movies = require('../movies');
                        
 //Welcome page
 const index = (req, res) => {
@@ -12,8 +13,12 @@ const renderSignup = (req, res) => {
 };   
 //adds new user 
 const signup = (req, res) => {
-    users.push(req.body);
-    res.redirect(`/users/profile/${users.length-1}`);
+    User.create(req.body)
+    .then(newUser => {
+        res.redirect(`/users/profile/${newUser.id}`);
+    })
+    //users.push(req.body);
+    //res.redirect(`/users/profile/${users.length-1}`);
 };
 //existing user login
 const renderLogin = (req, res) => {
@@ -21,31 +26,52 @@ const renderLogin = (req, res) => {
 }; 
 //verify user login credentials
 const login = (req, res) => {
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].username === req.body.username && users[i].password ===req.body.password){
-            res.redirect('/users/profile/'+[i]);
-        }; 
-        };
+    User.findOne({
+        where: {
+            username: req.body.username,
+            password: req.body.password
+        }
+    })
+    .then(foundUser => {
+        res.redirect(`/users/profile/${foundUser.id}`);
+    })
 };
 //profile for user
 const renderProfile = (req, res) => {
-    res.render('users/profile.ejs', {
-        user: users[req.params.index],
-        index: req.params.index
-    })
+    User.findByPk(req.params.index)
+    .then(userProfile => {
+        res.render('users/profile.ejs', {
+            user: userProfile
+        });
+    });    
+    //res.render('users/profile.ejs', {
+    //    user: users[req.params.index],
+    //    index: req.params.index
+    //})
 };
 //Edit user profile
 const editProfile = (req, res) => {
-    users[req.params.index] = req.body;
-    res.redirect(`/users/profile/${req.params.index}`);
+    User.update(req.body, {
+        where: {
+            id: req.params.index
+        },
+        returning: true
+    })
+    .then(updatedUser => {
+        res.redirect(`/users/profile/${req.params.index}`);
+    });
 };
+
 //delete user
 const deleteUser = (req, res) => {
-    users.splice(req.params.index, 1);
-    res.redirect('/users');
+    User.destroy({
+        where: {
+            id: req.params.index
+        }
+    }).then(() => {
+        res.redirect('/users');
+    });
 };
-
-
 
 module.exports = {
     index,
