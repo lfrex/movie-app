@@ -37,12 +37,13 @@ const postMovie = (req, res) => {
 
 
 const renderEdit = (req, res) => {
-    res.render('edit.ejs',
+    Movie.findByPk(req.params.index)
+    .then(movie => {
+        res.render('edit.ejs',
 		{ 
-			movie: movies[req.params.index],
-			index: req.params.index 
-		}
-	);
+			movie: movie
+		});
+    })
 }
 
 const editMovie = (req, res) => {
@@ -51,8 +52,13 @@ const editMovie = (req, res) => {
     } else { 
         req.body.seenAlready = false;
     }
-	movies[req.params.index] = req.body;
-	res.redirect('/movies'); 
+    Movie.update(req.body, {
+        where: { id: req.params.index },
+        returning: true,
+    })
+    .then(movie => {
+        res.redirect('/movies'); 
+    })	
 }
 
 const deleteMovie = (req, res) => {
