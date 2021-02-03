@@ -25,11 +25,15 @@ const renderLogin = (req, res) => {
 }; 
 //verify user login credentials
 const login = (req, res) => {
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].username === req.body.username && users[i].password ===req.body.password){
-            res.redirect('/users/profile/'+[i]);
-        }; 
-        };
+    User.findOne({
+        where: {
+            username: req.body.username,
+            password: req.body.password
+        }
+    })
+    .then(foundUser => {
+        res.redirect(`/users/profile/${foundUser.id}`);
+    })
 };
 //profile for user
 const renderProfile = (req, res) => {
