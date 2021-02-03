@@ -48,10 +48,14 @@ const postMovie = (req, res) => {
 
 const renderEdit = (req, res) => {
     Movie.findByPk(req.params.index)
-    .then(movie => {
-        res.render('edit.ejs', { 
-            movie: movie
-        });
+    .then(foundMovie => {
+        Genre.findAll()
+        .then(allGenres => {
+            res.render('edit.ejs', {
+                movie: foundMovie,
+                genre: allGenres
+            });
+        })
     })
 }
 
