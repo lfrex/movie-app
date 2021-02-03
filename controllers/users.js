@@ -1,5 +1,5 @@
 
-const users = require('../users.js');
+const User = require('../models').User;
 //const movies = require('../movies');
                        
 //Welcome page
