@@ -1,16 +1,25 @@
-const movies = require('../movies.js');
+
+
+const Movie = require('../models').Movie;
+
 //const User = require('../models').User;
 
 const index = (req, res) => {
-    res.render('index.ejs', {
-        movies: movies
-    });
+    Movie.findAll()
+    .then(movies => {
+        res.render('index.ejs', {
+            movies: movies
+        });
+    }) 
 };
 
 const show = (req, res) => {
-    res.render('show.ejs', {
-        movie: movies[req.params.index]
-    });
+    Movie.findByPk(req.params.index)
+    .then(movie => {
+        res.render('show.ejs', {
+            movie: movie
+        });
+    })  
 }
 
 const renderNew = (req, res) => {
@@ -23,18 +32,20 @@ const postMovie = (req, res) => {
     } else {
         req.body.seenAlready = false;
     }
-    movies.push(req.body);
-    res.redirect('/movies');
+    Movie.create(req.body)
+    .then(newMovie => {
+        res.redirect('/movies');
+    })  
 };
 
 
 const renderEdit = (req, res) => {
-    res.render('edit.ejs',
-		{ 
-			movie: movies[req.params.index],
-			index: req.params.index 
-		}
-	);
+    Movie.findByPk(req.params.index)
+    .then(movie => {
+        res.render('edit.ejs', { 
+            movie: movie
+        });
+    })
 }
 
 const editMovie = (req, res) => {
@@ -43,13 +54,21 @@ const editMovie = (req, res) => {
     } else { 
         req.body.seenAlready = false;
     }
-	movies[req.params.index] = req.body;
-	res.redirect('/movies'); 
+    Movie.update(req.body, {
+          where: { id: req.params.index },
+          returning: true,
+        }
+    )
+    .then(movie => {
+        res.redirect('/movies');
+    })
 }
 
 const deleteMovie = (req, res) => {
-    movies.splice(req.params.index, 1); 
-	res.redirect('/movies'); 
+    Movie.destroy({ where: { id: req.params.index } })
+    .then(() => {
+        res.redirect('/movies');
+    }) 	 
 }
 
 module.exports = {
