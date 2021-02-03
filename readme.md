@@ -78,7 +78,7 @@ The requirements for this project were to form a team with a partner to make a f
 <br>
 <br>
 
-## Techonologies Used
+## Technologies Used
 <br>
 
 
