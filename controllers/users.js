@@ -33,10 +33,16 @@ const login = (req, res) => {
 };
 //profile for user
 const renderProfile = (req, res) => {
-    res.render('users/profile.ejs', {
-        user: users[req.params.index],
-        index: req.params.index
-    })
+    User.findByPk(req.params.index)
+    .then(userProfile => {
+        res.render('users/profile.ejs', {
+            user: userProfile
+        });
+    });    
+    //res.render('users/profile.ejs', {
+    //    user: users[req.params.index],
+    //    index: req.params.index
+    //})
 };
 //Edit user profile
 const editProfile = (req, res) => {
