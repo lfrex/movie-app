@@ -32,5 +32,15 @@
     </form>
     <br>
     <a href="/movies">View list of available Movies</a>
+    <br><br>
+    <h3>Your Movie List:</h3>
+    <% for (let i =0; i < user.Movies.length; i++){ %>
+        <li>
+            <a href = "/movies/<%=user.Movies[i].id%>"><%= user.Movies[i].name%></a>
+        </li>
+        <br>
+        <% } %>
+    <br><br> 
+    <br>
 </body>
 </html>

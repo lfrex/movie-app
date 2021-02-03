@@ -40,7 +40,7 @@ const renderProfile = (req, res) => {
         include : [
             {
             model: Movie,
-            attributes: ['name', 'director', 'year', 'seenAlready']
+            attributes: [ 'id', 'name', 'director', 'year', 'seenAlready']
             }
         ]
     })
