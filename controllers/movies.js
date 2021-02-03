@@ -1,10 +1,13 @@
-const movies = require('../movies.js');
+const Movie = require('../models').Movie;
 //const User = require('../models').User;
 
 const index = (req, res) => {
-    res.render('index.ejs', {
-        movies: movies
-    });
+    Movie.findAll()
+    .then(movies => {
+        res.render('index.ejs', {
+            movies: movies
+        });
+    }) 
 };
 
 const show = (req, res) => {
