@@ -1,4 +1,4 @@
-const movies = require('../models/movies.js');
+const movies = require('../movies.js');
 //const User = require('../models').User;
 
 const index = (req, res) => {

@@ -1,6 +1,6 @@
 
-const users = require('../models/users');
-const movies = require('../models/movies);
+const users = require('../users.js');
+//const movies = require('../movies');
                        
 //Welcome page
 const index = (req, res) => {
