@@ -63,8 +63,13 @@ const editProfile = (req, res) => {
 
 //delete user
 const deleteUser = (req, res) => {
-    users.splice(req.params.index, 1);
-    res.redirect('/users');
+    User.destroy({
+        where: {
+            id: req.params.index
+        }
+    }).then(() => {
+        res.redirect('/users');
+    });
 };
 
 
