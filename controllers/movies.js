@@ -56,8 +56,10 @@ const editMovie = (req, res) => {
 }
 
 const deleteMovie = (req, res) => {
-    movies.splice(req.params.index, 1); 
-	res.redirect('/movies'); 
+    Movie.destroy({ where: { id: req.params.index } })
+    .then(() => {
+        res.redirect('/movies');
+    }) 	 
 }
 
 module.exports = {
