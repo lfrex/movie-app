@@ -11,9 +11,12 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-    res.render('show.ejs', {
-        movie: movies[req.params.index]
-    });
+    Movie.findByPk(req.params.index)
+    .then(movie => {
+        res.render('show.ejs', {
+            movie: movie
+        });
+    })  
 }
 
 const renderNew = (req, res) => {
