@@ -50,9 +50,17 @@ const renderProfile = (req, res) => {
 };
 //Edit user profile
 const editProfile = (req, res) => {
-    users[req.params.index] = req.body;
-    res.redirect(`/users/profile/${req.params.index}`);
+    User.update(req.body, {
+        where: {
+            id: req.params.index
+        },
+        returning: true
+    })
+    .then(updatedUser => {
+        res.redirect(`/users/profile/${req.params.index}`);
+    });
 };
+
 //delete user
 const deleteUser = (req, res) => {
     users.splice(req.params.index, 1);
