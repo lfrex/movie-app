@@ -36,27 +36,39 @@ const login = (req, res) => {
 };
 //profile for user
 const renderProfile = (req, res) => {
-    User.findByPk(req.params.index)
+    User.findByPk(req.params.index, {
+        include : [
+            {
+            model: Movie,
+            attributes: ['name', 'director', 'year', 'seenAlready']
+            }
+        ]
+    })
     .then(userProfile => {
-        res.render('users/profile.ejs', {
-            user: userProfile
+        Movie.findAll()
+        .then(allMovies => {
+            res.render('users/profile.ejs', {
+                user: userProfile,
+                movies: allMovies
+            });
         });
-    });    
-    //res.render('users/profile.ejs', {
-    //    user: users[req.params.index],
-    //    index: req.params.index
-    //})
+    });        
 };
 //Edit user profile
 const editProfile = (req, res) => {
     User.update(req.body, {
-        where: {
-            id: req.params.index
-        },
+        where: { id: req.params.index },
         returning: true
     })
     .then(updatedUser => {
-        res.redirect(`/users/profile/${req.params.index}`);
+        Movie.findByPk(req.body.movie)
+        .then(foundMovie => {
+            User.findByPk(req.params.index)
+            .then(foundUser => {
+                foundUser.addMovie(foundMovie);
+                res.redirect(`/users/profile/${req.params.index}`);
+            });
+        });    
     });
 };
 
