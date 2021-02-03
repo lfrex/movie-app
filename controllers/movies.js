@@ -29,8 +29,10 @@ const postMovie = (req, res) => {
     } else {
         req.body.seenAlready = false;
     }
-    movies.push(req.body);
-    res.redirect('/movies');
+    Movie.create(req.body)
+    .then(newMovie => {
+        res.redirect('/movies');
+    })  
 };
 
 
