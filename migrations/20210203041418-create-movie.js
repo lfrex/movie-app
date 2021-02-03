@@ -1,6 +1,6 @@
 'use strict';
 
-const { DATE } = require("sequelize/types");
+
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -25,12 +25,12 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        defaultValue: new DATE(),
+        defaultValue: new Date(),
         type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        defaultValue: new DATE(),
+        defaultValue: new Date(),
         type: Sequelize.DATE
       }
     });
