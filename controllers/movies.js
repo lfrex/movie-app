@@ -2,7 +2,7 @@
 
 const Movie = require('../models').Movie;
 
-//const User = require('../models').User;
+const User = require('../models').User;
 
 const index = (req, res) => {
     Movie.findAll()
