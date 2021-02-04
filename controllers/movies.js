@@ -30,7 +30,13 @@ const show = (req, res) => {
 }
 
 const renderNew = (req, res) => {
-    res.render('new.ejs');
+    Genre.findAll()
+    .then(allGenres => {
+        res.render('new.ejs', {
+            genre: allGenres
+        });
+        
+    })
 }
 
 const postMovie = (req, res) => {
@@ -41,13 +47,8 @@ const postMovie = (req, res) => {
     }
     Movie.create(req.body)
     .then(newMovie => {
-        Genre.findAll()
-        .then(allGenres => {
-            res.redirect('/movies', {
-                movie: newMovie,
-                genre: allGenres
-            });
-        })     
+        res.redirect('/movies');
+            
     })  
 };
 
