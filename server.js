@@ -1,5 +1,4 @@
 const express = require('express');
-const movies = require('./models/movie.js');
 const methodOverride = require('method-override');
 const { ppid } = require('process');
 const routes = require('./routes');
