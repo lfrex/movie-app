@@ -1,8 +1,7 @@
-
-
 const Movie = require('../models').Movie;
-
+const Genre = require('../models').Genres;
 //const User = require('../models').User;
+
 
 const index = (req, res) => {
     Movie.findAll()
@@ -14,7 +13,15 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-    Movie.findByPk(req.params.index)
+    Movie.findByPk(req.params.index,
+        {
+            include : [
+                {
+                    model: Genre,
+                    attributes: ['name']
+                }
+            ]
+        })
     .then(movie => {
         res.render('show.ejs', {
             movie: movie
@@ -23,7 +30,13 @@ const show = (req, res) => {
 }
 
 const renderNew = (req, res) => {
-    res.render('new.ejs');
+    Genre.findAll()
+    .then(allGenres => {
+        res.render('new.ejs', {
+            genre: allGenres
+        });
+        
+    })
 }
 
 const postMovie = (req, res) => {
@@ -35,16 +48,21 @@ const postMovie = (req, res) => {
     Movie.create(req.body)
     .then(newMovie => {
         res.redirect('/movies');
+            
     })  
 };
 
 
 const renderEdit = (req, res) => {
     Movie.findByPk(req.params.index)
-    .then(movie => {
-        res.render('edit.ejs', { 
-            movie: movie
-        });
+    .then(foundMovie => {
+        Genre.findAll()
+        .then(allGenres => {
+            res.render('edit.ejs', {
+                movie: foundMovie,
+                genre: allGenres
+            });
+        })
     })
 }
 

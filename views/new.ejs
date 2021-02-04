@@ -12,7 +12,17 @@
         <form action="/movies" method="POST">
             Name: <input type="text"  name="name" />
             <br>
-            Director:<input type="director" name="director" />
+            Director:<input type="text" name="director" />
+            <br>
+            Genre:
+            <select name="genreId">
+                <% for ( let i = 0; i < genre.length; i++ ) {
+                    let selected = ( i == 0 ) ? "selected" : "";
+                %>
+                    <option value="<%=genre[i].id%>" <%=selected%>><%=genre[i].name%>
+                    </option>
+               <% } %>
+            </select>
             <br>
             Year: <input type="number" name="year" />
             <br>
