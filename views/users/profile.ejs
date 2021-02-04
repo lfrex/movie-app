@@ -11,6 +11,18 @@
         Name: <input type="text" name="name" value=<%=user.name%> /><br> <br>
         Username: <input type="text" name="username" value=<%=user.username%> /> <br> <br>
         Password: <input type="text" name="password" value=<%=user.password%> /><br> <br> 
+        <br>
+        Select Movie
+        <select name="movie">
+            <% for (let i = 0; i < movies.length; i++) { 
+                let selected = (i == 0) ? "selected" : "";
+            %>
+                <option value="<%= movies[i].id%>" <%=selected%>>
+                    <%=movies[i].name%>
+                </option>
+            <% } %>
+        </select>
+        <br><br>    
         <input type="submit" value="Edit Profile" />
     </form>
     <br>
@@ -20,5 +32,15 @@
     </form>
     <br>
     <a href="/movies">View list of available Movies</a>
+    <br><br>
+    <h3>Your Movie List:</h3>
+    <% for (let i =0; i < user.Movies.length; i++){ %>
+        <li>
+            <a href = "/movies/<%=user.Movies[i].id%>"><%= user.Movies[i].name%></a>
+        </li>
+        <br>
+        <% } %>
+    <br><br> 
+    <br>
 </body>
 </html>
