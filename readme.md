@@ -80,7 +80,7 @@ We created the folder/file structure and added the basic minimum code for the fi
 We performed a push request to origin on GitHub and uploaded the basic structure of the project and afterwards each developer performed a pull request and merge to his local branch.
 Reviewed the project and agreed on having each developer work on a specific model (User or Movie), merging the branches at the end of each phase after fully testing the code in each phase.
 <br>
-+ For phase B, we wrote a list with the sequence of steps to implement sequelize for each model and relationships.
+For phase B, we wrote a list with the sequence of steps to implement sequelize for each model and relationships.
 Each  team member implemented ORM sequelize in the same model developed during phase A.
 
 
