@@ -4,7 +4,7 @@
 
 <br>
 
-Movie Log App is an app that allows a movie lover to have of control of his pending to watch movies. Allows a user, once logged into the app, to look for already created movies to add to his list or to create new ones, which will also be available for others to select too. 
+Movie Log App is an app that allows a movie lover to have of control of his pending to watch movies. Allows a user, once logged into the app, to look for already created movies to add to his list or to create new ones, which will also be available for others to  select too. 
 
 <br>
 <br>
