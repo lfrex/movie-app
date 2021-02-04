@@ -101,8 +101,8 @@ Each  team member implemented ORM sequelize in the same model developed during p
 
 <br>
 
-+ [github repo](https://github.com/lfrex/movie-app "github repo")
-+ [deployment]()
++ [github repo](https://github.com/lfrex/movie-app "Github repo")
++ [deployment](https://movielog-app.herokuapp.com/users "Heroku Movie-Log App")
 
 <br>
 <br>
