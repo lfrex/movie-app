@@ -15,6 +15,7 @@ Movie Log App is an app that allows a movie lover to have of control of his pend
 
 - [Current Features](#current-features)
 - [Project Description](#project-description)
+- [Team Members](#team-members)
 - [Project links](#project-links)
 - [MVP / Stretch Goals](#mvp-/-stretch-goals)
 - [Wireframes](#wireframes)
@@ -31,7 +32,6 @@ Movie Log App is an app that allows a movie lover to have of control of his pend
 + A Movie Index page that displays all available movies and allows to:
   - Create a new movie
   - Access the details of an existing movie
-  - Mark a movie as "Seen already"
   - Edit an existing movie
   - Delete a movie
 + A User landing page which allows to:
@@ -49,7 +49,16 @@ Movie Log App is an app that allows a movie lover to have of control of his pend
 
 <br>
 
-The requirements for this project were to form a team with a partner to make a full-stack CRUD application with at least two models associated in some way. 
+The requirements for this project were to form a team with a partner to make a full-stack CRUD App with at least two models associated in some way. The App must be deployed online and be accessible through Heroku.
+<br>
+<br>
+
+## Team Members
+<br>
+
++ Hector Urdaneta
++ Octavio Villalpando
+
 
 <br>
 <br>
@@ -81,6 +90,12 @@ The requirements for this project were to form a team with a partner to make a f
 ## Technologies Used
 <br>
 
++ Node.js
++ Postgress
++ Express
++ Sequelize
++ EJS 
++ MVC architecture
 
 <br>
 <br>

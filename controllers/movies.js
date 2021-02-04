@@ -41,7 +41,13 @@ const postMovie = (req, res) => {
     }
     Movie.create(req.body)
     .then(newMovie => {
-        res.redirect('/movies');
+        Genre.findAll()
+        .then(allGenres => {
+            res.redirect('/movies', {
+                movie: newMovie,
+                genre: allGenres
+            });
+        })     
     })  
 };
 
