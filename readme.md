@@ -137,7 +137,7 @@ The stretch goals for this project are as follows:
 + As a Movie-App user, it would be nice to be able to generate a movie list by classification.
 + As a Movie-App user, it would be nice to be able to generate a list of movies by director.
 + Add styling (CSS) to the views in the project.
-+ Include sign uo/long in functionality with encrypted passwords & authorization flow.
++ Include sign up/long in functionality with encrypted passwords & authorization flow.
 
 
 <br>
@@ -184,7 +184,7 @@ During the final merge and pull request we ran “sequelize db:migrate” to gen
 One of the main lessons learned with this project was that, working in teams is easier if everyone is in the same channel. At the beggining, it was key to have a meeting to decide how the work flow was going to be, deciding the initial project approach, when to share code, and how to divide the workload. This was key because everyone knew at every moment what to do and what was doing the other. Also, every day it was a meeting to review the day advance, the pending things, any other situations presented, and also to decide the approach for the next day's morning. 
 <br>
 <br>
-Other interesent thing learned was how to use effectively the repo to work as a team. At the beginning, it was a little unclear how to perform the steps to merge the code in the repo and how to retrieve it from there, so everyone could have the same code in their individual branches and continue with his individual work, but after the first (traumatic) experience, everything went smooth and it really demonstrated to be a very useful tool to speed the team's work and a very powerfull resource to align the colletive efforts.
+Other interestingt thing learned was how to use effectively the repo to work as a team. At the beginning, it was a little unclear how to perform the steps to merge the code in the repo and how to retrieve it from there, so everyone could have the same code in their individual branches and continue with his individual work, but after the first (traumatic) experience, everything went smooth and it really demonstrated to be a very useful tool to speed the team's work and a very powerfull resource to align the collective efforts.
 
 
 
